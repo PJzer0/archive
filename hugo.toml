@@ -1,13 +1,43 @@
-baseURL = 'https://archive.linux.cn/'
+baseURL = 'https://www.linux.cn/'
 languageCode = 'zh-Hans'
 title = 'Linux.cn Archive'
 theme = "mainroad"
-uglyURLs = true
-
+uglyURLs = false
+paginate = 50
+[Params]
+opengraph = true # Enable OpenGraph if true
+schema = true # Enable Schema
+readmore = true # Show "Read more" button in list if true
+post_meta = ["author", "date"]
 [Params.logo]
   title = "Linux.cn Archive"
-[Params.sidebar]
-  home = "right"
-  list = "right"
-  single = "right"
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+[Params.thumbnail]
+  visibility = ["list", "post"] # Control thumbnail visibility
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html']
+[menus]
+[[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+[[menus.main]]
+    name = 'Categories'
+    pageRef = '/categories/'
+    weight = 20
+
+[[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags/'
+    weight = 30
+
+[[menus.main]]
+    name = 'RSS'
+    pageRef = '/index.xml'
+    weight = 40
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
